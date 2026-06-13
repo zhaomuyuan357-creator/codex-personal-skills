@@ -1,63 +1,63 @@
-# Session Closeout Examples
+# Session Closeout 示例
 
-These are paste-ready example prompts for triggering the `session-closeout` skill in different styles.
+这些是适合触发 `session-closeout` 的可直接复用示例，默认以中文表达为主，更贴近日常真实使用。
 
-## Short Triggers
+## 最短触发句
 
 ```text
-Do a session closeout.
+做一次收尾。
 ```
 
 ```text
-Wrap up this project for today.
+帮我做个收尾。
 ```
 
 ```text
-End-of-day closeout for this repo.
+结束今天这轮，做一次收尾。
 ```
 
-## Handoff-Focused Triggers
+## 交接导向
 
 ```text
-Update the handoff, sync project memory, and give me a resume prompt for the next chat.
-```
-
-```text
-Prepare this project so a new conversation can continue smoothly tomorrow.
+更新交接内容，整理项目记忆，再给我一段新对话续上的提示词。
 ```
 
 ```text
-Summarize today's progress, update the project memory, and tell me how to resume in a fresh thread.
-```
-
-## Git-Aware Triggers
-
-```text
-Check whether today's work should be committed and pushed, then do a proper session closeout.
+把今天的进展收一下尾，让新对话明天能顺利接上。
 ```
 
 ```text
-If this is a good checkpoint, commit and push it, update the handoff notes, and give me a resume prompt.
+总结今天进展，更新项目 memory，并告诉我新开对话该怎么继续。
+```
+
+## Git 导向
+
+```text
+检查一下今天的改动是否适合提交和推送，然后做一次完整收尾。
 ```
 
 ```text
-Do a closeout pass: review git status, decide whether to commit/push, then sync the project memory.
-```
-
-## Long-Form Triggers
-
-```text
-Do a session closeout: inspect the repo state, decide whether today's changes are ready for commit and push, update the progress and handoff memory, update long-term instructions only if they truly need it, and give me a paste-ready prompt for the next conversation.
+如果现在是合适的检查点，就 commit、push、更新交接，并给我续聊提示词。
 ```
 
 ```text
-Help me end today's work cleanly: summarize what was finished, what is still in progress, what is blocked, whether code should be committed and pushed, what memory docs should be updated, and how a new chat should resume from here.
+做一次收尾：先看 git 状态，判断该不该 commit / push，再同步项目记忆。
 ```
 
-## Personal Style Variants
+## 完整长句
 
 ```text
-帮我做一次收尾：判断是否该提交并推送，更新项目记忆和交接信息，必要时同步长期说明文档，并给我一个下次新对话直接续上的提示词。
+做一次会话收尾：先判断今天的改动是否适合提交并推送，再更新进度和交接信息；如果项目规则、阶段判断或续聊方式变了，再同步长期说明文档；最后给我一段可以直接用于下次新对话的提示词。
+```
+
+```text
+帮我把今天这轮工作干净地收掉：总结已经完成的、还在进行的、当前卡点和下一步，判断代码是否该提交和推送，更新项目记忆文档，并给我一个新对话直接续上的口令。
+```
+
+## 更像你个人口吻的版本
+
+```text
+git push到仓库，并告诉我新开对话该怎么让新对话跟上进度，同时再更新项目的memory，必要时再改长期说明文档。
 ```
 
 ```text
@@ -68,13 +68,23 @@ Help me end today's work cleanly: summarize what was finished, what is still in 
 结束今天这轮：整理当前进展、阻塞和下一步，更新项目 memory，并告诉我明天新开对话怎么接上。
 ```
 
-## What Good Output Should Include
+## 更稳一点的推荐说法
 
-A good closeout result should usually include:
+```text
+帮我做一次收尾：判断是否该提交并推送，更新项目记忆和交接信息，必要时同步长期说明文档，并给我一个下次新对话直接续上的提示词。
+```
 
-- whether code was committed
-- whether code was pushed
-- which memory or handoff files were updated
-- whether any long-term instruction files were updated
-- a concise current-status summary
-- a paste-ready resume prompt for the next chat
+```text
+做一次通用收尾：检查仓库状态，决定是否 commit / push，同步项目记忆，必要时更新长期规则，并输出一段可直接复制的新对话续聊提示词。
+```
+
+## 理想输出应包含
+
+一次好的收尾结果，通常应该明确给出：
+
+- 是否已 commit
+- 是否已 push
+- 更新了哪些记忆或交接文件
+- 是否更新了长期说明文件
+- 当前状态摘要
+- 一段可直接复制的新对话续聊提示词

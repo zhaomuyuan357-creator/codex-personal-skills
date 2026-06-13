@@ -5,131 +5,131 @@ description: Standardizes end-of-session project wrap-up for coding and knowledg
 
 # Session Closeout
 
-## Purpose
+## 目的
 
-Use this skill at the end of a work session to leave the project in a clean, resumable state without over-updating documents or pushing code blindly.
+这个 skill 用在一次工作会话结束时，帮助把项目收尾到“干净、可续接、不过度更新”的状态。
 
-## Core Rules
+## 核心原则
 
-- Do not assume code should always be committed or pushed.
-- Update short-term memory first; update long-term guidance only when it truly changed.
-- Prefer concise, high-signal handoff notes over verbose journals.
-- Preserve the user's existing project conventions for handoff files and progress logs.
+- 不要默认代码一定要提交，更不要默认一定要推送。
+- 优先更新短期项目记忆，再判断是否需要改长期说明。
+- 交接内容要高信号、低废话，避免写成长篇流水账。
+- 尊重当前项目已有的进度文档、handoff 文档、任务文档和仓库习惯。
 
-## Closeout Workflow
+## 收尾流程
 
-1. Inspect the current workspace state.
-   Check git status, changed files, and the project's existing memory or handoff documents.
+1. 检查当前工作区状态。  
+   查看 git 状态、变更文件，以及项目当前已有的 memory / handoff / progress 文档。
 
-2. Decide whether code is ready for commit.
-   Commit only if the work is intentional, coherent, and the user asked for it or clearly expects it.
+2. 判断代码是否适合提交。  
+   只有在改动已经形成明确检查点、用户明确要求，或当前会话确实适合落一个仓库快照时，才提交。
 
-3. Decide whether push is appropriate.
-   Push only if a remote workflow exists, the branch is suitable, and there is no obvious reason to hold changes locally.
+3. 判断是否适合推送。  
+   只有在远端工作流存在、当前分支适合同步、并且没有明显理由需要先保留本地时，才推送。
 
-4. Summarize the session.
-   Capture:
-   - what was completed
-   - what is still in progress
-   - current blockers or risks
-   - the most important next step
+4. 总结本次会话结果。  
+   至少提炼出：
+   - 已完成内容
+   - 进行中内容
+   - 当前阻塞或风险
+   - 下一步最高优先级
 
-5. Update project memory.
-   Prefer the project's short-term operational memory first, such as:
-   - progress logs
-   - handoff notes
-   - task trackers
-   - checkpoint docs
+5. 更新项目记忆。  
+   优先更新项目的短期运行记忆，例如：
+   - 进度日志
+   - handoff 文档
+   - 任务追踪文档
+   - 检查点说明
 
-6. Update long-term instructions only if needed.
-   Update files like `AGENTS.md`, contributor guides, or workflow instructions only when one of these changed:
-   - resume procedure
-   - current phase/stage judgment
-   - stable working rules
-   - important repo-specific cautions
+6. 仅在必要时更新长期说明。  
+   只有当以下内容真的发生变化时，才更新 `AGENTS.md`、贡献说明、工作流说明等长期文档：
+   - 新对话续接方式
+   - 当前阶段判断
+   - 稳定工作规则
+   - 重要仓库注意事项
 
-7. Generate a resume prompt for the next chat.
-   The prompt should let a new conversation pick up quickly with:
-   - what to read first
-   - the current baseline
-   - the active task
-   - the main caution points
-   - the next step
+7. 生成下一次新对话的续接提示词。  
+   这段提示词应尽量让新对话快速进入状态，至少包括：
+   - 先读什么
+   - 当前基线是什么
+   - 当前正在做什么
+   - 有哪些重要注意点
+   - 下一步先做什么
 
-8. Report the closeout result to the user.
-   Explicitly state:
-   - whether code was committed
-   - whether code was pushed
-   - which memory files were updated
-   - whether long-term instructions were updated
-   - the resume prompt
+8. 向用户汇报收尾结果。  
+   要明确说明：
+   - 是否已 commit
+   - 是否已 push
+   - 更新了哪些记忆文件
+   - 是否更新了长期说明文件
+   - 可直接复制的新对话续接提示词
 
-## Decision Guide
+## 判断规则
 
-### Commit
+### 什么时候适合 commit
 
-Commit when:
+适合提交的情况：
 
-- the work forms a meaningful checkpoint
-- the changes are understandable as one unit
-- the user asked for a repo checkpoint or is ending the session
+- 这次改动已经形成一个明确检查点
+- 改动可以被理解为一个完整单元
+- 用户明确要求做仓库收尾，或当前确实是结束会话的自然节点
 
-Do not commit when:
+不适合提交的情况：
 
-- the work is half-broken or exploratory with no clear checkpoint
-- unrelated changes are mixed together and not yet separated
+- 当前改动仍然半坏、半试验、没有形成稳定节点
+- 无关改动混在一起，还没有梳理清楚
 
-### Push
+### 什么时候适合 push
 
-Push when:
+适合推送的情况：
 
-- the user asked for push
-- the branch is intended to sync upstream now
-- the repo state appears safe to share
+- 用户明确要求 push
+- 当前分支本来就应该同步到远端
+- 当前仓库状态适合共享，不需要先本地保留
 
-Do not push when:
+不适合推送的情况：
 
-- there is no configured remote
-- the branch is clearly local-only or experimental
-- the user asked only for a local checkpoint
+- 没有配置远端
+- 当前分支明显只是本地实验分支
+- 用户只想要本地检查点，不想立刻同步
 
-### Memory Updates
+### 什么时候更新项目记忆
 
-Always prefer:
+优先写进去的应该是：
 
-- current progress
-- current blockers
-- exact next step
+- 当前真实进展
+- 当前阻塞点
+- 明确下一步
 
-Avoid:
+避免：
 
-- rewriting the whole project history
-- duplicating the same notes across many files without a reason
+- 把整个项目历史重写一遍
+- 在多个文档里无意义重复同样的话
 
-## Output Template
+## 输出模板
 
-Use this structure in the final response:
+最终输出通常应包含这几个部分：
 
 ```text
-Closeout summary:
-- Commit: [done / not done]
-- Push: [done / not done]
-- Updated memory: [files]
-- Updated long-term instructions: [files or none]
+收尾结果：
+- Commit: [已完成 / 未完成]
+- Push: [已完成 / 未完成]
+- 更新的项目记忆： [文件列表]
+- 更新的长期说明： [文件列表或无]
 
-Current status:
-- Completed:
-- In progress:
-- Blockers or risks:
-- Next priority:
+当前状态：
+- 已完成：
+- 进行中：
+- 阻塞或风险：
+- 下一步优先级：
 
-Resume prompt for next chat:
-[paste-ready prompt]
+新对话续接提示词：
+[可直接复制的提示词]
 ```
 
-## Trigger Examples
+## 触发示例
 
-- "Do a session closeout."
-- "Wrap up this project for today."
-- "Update handoff and give me a resume prompt."
-- "Check whether this should be committed and pushed, then sync project memory."
+- “做一次收尾。”
+- “帮我做个收尾。”
+- “更新交接内容，再给我一个新对话续接提示词。”
+- “检查一下现在该不该 commit / push，然后同步项目记忆。”
