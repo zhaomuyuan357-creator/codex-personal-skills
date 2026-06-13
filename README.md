@@ -28,6 +28,30 @@ You can also override the target:
 .\scripts\sync-skills.ps1 -TargetRoot "C:\Users\Edward\.agents\skills"
 ```
 
+## Create A New Skill
+
+Use the scaffold script to generate a new skill skeleton:
+
+```powershell
+.\scripts\new-skill.ps1 session-resume
+```
+
+Create a project-specific skill:
+
+```powershell
+.\scripts\new-skill.ps1 econy-closeout -Category projects
+```
+
+This creates:
+
+```text
+skills/<category>/<skill-name>/
+  SKILL.md
+  EXAMPLES.md
+```
+
+The scaffold only creates a minimal structure. You still fill in the actual workflow, rules, and examples for each skill.
+
 This repository is intended to store:
 
 - general-purpose reusable skills
